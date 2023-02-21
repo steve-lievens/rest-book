@@ -1,5 +1,7 @@
 package org.ibm.ce.quarkus.starting;
 
+import javax.inject.Inject;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -16,6 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import org.jboss.logging.Logger;
 
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
@@ -26,15 +29,20 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class PublisherResource {
 
+    @Inject
+    Logger logger;
+
     @GET
     @Path("/{id: \\d+}")
     public Publisher findPublisherById(@PathParam("id") Long id) {
+        logger.info("Returning publisher with id " + id);
         return (Publisher) Publisher.findByIdOptional(id).orElseThrow(NotFoundException::new);
     }
 
     @GET
     @Path("/{name: \\D+}")
     public Publisher findPublisherByName(@PathParam("name") String name) {
+        logger.info("Returning publisher with name " + name);
         return Publisher.findByName(name).orElseThrow(NotFoundException::new);
     }
 
@@ -46,6 +54,7 @@ public class PublisherResource {
 
     @GET
     public List<Publisher> listAllPublishers() {
+        logger.info("Returning all publishers");
         return Publisher.listAll();
     }
 

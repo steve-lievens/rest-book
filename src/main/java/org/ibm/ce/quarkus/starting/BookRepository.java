@@ -19,7 +19,6 @@ public class BookRepository {
     String genre;
 
     public List<Book> getAllBooks() {
-        logger.info("Returning all books");
         return List.of(
                 new Book(1, "Understanding Quarkus", "Antonio", 2021, genre),
                 new Book(2, "Practising Quarkus", "Antonio", 2020, genre),
@@ -28,7 +27,6 @@ public class BookRepository {
     }
 
     public Optional<Book> getBook(int id) {
-        logger.info("Returning book with id " + id);
         return getAllBooks().stream().filter(book -> book.id == id).findFirst();
     }
 
