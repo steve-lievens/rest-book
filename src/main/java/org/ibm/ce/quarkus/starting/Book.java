@@ -8,6 +8,17 @@ public class Book {
     public int yearOfPublication;
     public String genre;
 
+    // ======================================
+    // = Constructors =
+    // ======================================
+
+    public Book(String title) {
+        this.title = title;
+    }
+
+    public Book() {
+    }
+
     public Book(int id, String title, String author, int yearOfPublication, String genre) {
         this.id = id;
         this.title = title;

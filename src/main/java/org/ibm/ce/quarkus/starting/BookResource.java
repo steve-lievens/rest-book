@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import org.jboss.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/api/books")
+@ApplicationScoped
 public class BookResource {
 
     @Inject

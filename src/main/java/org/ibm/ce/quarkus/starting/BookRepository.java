@@ -21,7 +21,7 @@ public class BookRepository {
     public List<Book> getAllBooks() {
         return List.of(
                 new Book(1, "Understanding Quarkus", "Antonio", 2021, genre),
-                new Book(2, "Practising Quarkus", "Antonio", 2020, genre),
+                new Book(2, "Practising Quarkus", "HarperPrism", 2020, genre),
                 new Book(3, "Effective Java", "Josh Bloch", 2001, genre),
                 new Book(4, "Thinking in Java", "Bruce Eckel", 1998, genre));
     }
